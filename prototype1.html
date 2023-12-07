@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheetproto.css">
+  <title>Rashids Florists</title>
+</head>
+<body>
+  <header>
+    <br>
+    <br>
+    <h1>Rashids Florists</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+  </header>
+  <div id="top-menu">
+    <div id="shopping-cart">
+      <a href="cart.html">
+        <img id="shopping-cart-icon" src="cart.svg" alt="Shopping Cart Icon" width="20" height="20">
+        <span>Shopping Cart</span>
+    </div>
+    <div id="search-box">
+        <input id="search-input" type="text" placeholder="Search">
+        <a id="search-button" href="#"><span>&#128269;</span></a>
+    </div>
+</div>
+<br>
+  <main>
+   
+    <section id="banner">
+      <h2>Welcome to Rashids Florists</h2>
+      <p>Crafted with Passion, Delivered with Pride.</p>
+      <a href="#" class="cta-button">Shop Now</a>
+    </section>
+
+    <section id="categories">
+      <h2>Explore Our Range</h2>
+      <div class="category">
+        <img src="weddingpic.jpg" alt="Category 1">
+        <h3>Wedding Flowers</h3>
+        <a href="weddingflowers.html" class="weddingflowers-button">View Product Options</a>
+      </div>
+      
+      <div class="category">
+        <img src="birthdayflow.jpg" alt="Category 2">
+        <h3>Birthday Bouquets</h3>
+        <a href="birthdayflowers.html" class="birthdayflowers-button">View Product Options</a>
+      </div>
+      <br>
+      <br>
+      <div class="category">
+        <img src="anniversay.jpg" alt="Category 3">
+        <h3>Anniversary Roses</h3>
+        <a href="anniversaryflowers.html" class="anniversaryflowers-button">View Product Options</a>
+      </div>
+      <div class="category">
+        <img src="ass2.jpg" alt="Category 4">
+        <h4>Flowers assorted</h4>
+        <a href="assorted.html" class="assorted-button">View Product Options</a>
+      </div>
+    </section>
+
+    <section id="testimonials">-*
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">
+        <blockquote>"Best flowers, good service and prices"</blockquote>
+        <cite>- Erthney Abrahams</cite>
+      </div>
+      <div class="testimonial">
+        <blockquote>"
+          This florist is on the roadside and is cheaper than most other florists. You usually get what you looking for"</blockquote>
+        <cite>- C Ismail</cite>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Rashids Florists. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a href="service.html">Terms of Service</a></li>
+        <li><a href="policy.html">Privacy Policy</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+
+    searchButton.addEventListener('click', performSearch);
+
+   
+    function performSearch() {
+
+        const query = searchInput.value;
+
+        alert('Performing search: ' + query);
+    }
+
+function performSearch(query) {
+  const results = [
+    { title: "Result 1", description: "This is the first search result." },
+    { title: "Result 2", description: "This is the second search result." },
+    { title: "Result 3", description: "This is the third search result." }
+  ];
+
+ 
+  const searchResults = document.getElementById('search-results');
+  const resultsList = document.getElementById('results-list');
+
+
+  resultsList.innerHTML = '';
+
+
+  searchResults.style.display = 'block';
+
+  
+  results.forEach(result => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<strong>${result.title}</strong>: ${result.description}`;
+    resultsList.appendChild(listItem);
+  });
+}
+
+searchButton.addEventListener('click', function() {
+  const query = searchInput.value;
+  performSearch(query);
+});
+</script>
+</body>
+
+</html>

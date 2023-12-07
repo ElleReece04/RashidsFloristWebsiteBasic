@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cartstylesheet.css">
+  <title>Cart</title>
+</head>
+<body>
+  <h2>Cart</h2>
+
+  <div id="cart-items">
+ 
+  </div>
+
+  <button id="clear-cart">Clear Cart</button>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var cartItems = localStorage.getItem('cartItems');
+      if (cartItems) {
+        cartItems = JSON.parse(cartItems);
+
+        var cartItemsContainer = document.getElementById('cart-items');
+        var totalPrice = 0;
+
+        cartItems.forEach(function(item) {
+          var product = item.product;
+          var price = item.price;
+
+          var itemElement = document.createElement('div');
+          itemElement.innerHTML = '<p>' + product + ' - R' + price + '</p>';
+          cartItemsContainer.appendChild(itemElement);
+
+          totalPrice += price;
+        });
+
+        var totalPriceElement = document.createElement('p');
+        totalPriceElement.innerHTML = 'Total Price:R ' + totalPrice.toFixed(2);
+        cartItemsContainer.appendChild(totalPriceElement);
+      } else {
+        var emptyCartMessage = document.createElement('p');
+        emptyCartMessage.innerHTML = 'Your cart is empty.';
+        cartItemsContainer.appendChild(emptyCartMessage);
+      }
+    });
+    
+    document.getElementById('clear-cart').addEventListener('click', function() {
+      localStorage.removeItem('cartItems');
+      document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
+    });
+  </script>
+</body>
+</html>

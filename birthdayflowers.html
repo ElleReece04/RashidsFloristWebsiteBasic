@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assorted Flowers - RashidsFlorists</title>
+  <link rel="stylesheet" href="birthdaystyles.css">
+</head>
+<body>
+  <form method="birthday"></form>
+  <div class="container">
+    <h2>Build Your Own Birthday Bouquet</h2>
+    <form>
+      <div class="form-group">
+        <label for="flower-type">Flower Type:</label>
+        <select id="flower-type">
+          <option value="roses">Roses</option>
+          <option value="Carnations">Carnations</option>
+          <option value="Proteas">Proteas</option>
+          <option value="Chrysanthemums">Chrysanthemums</option>
+         
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="flower-color">Flower Color:</label>
+        <select id="flower-color">
+          <option value="red">Red</option>
+          <option value="pink">Pink</option>
+          <option value="yellow">Yellow</option>
+          <option value="white">White</option>
+         
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="balloons">Balloons:</label>
+        <select id="balloons">
+          <option value="none">None</option>
+          <option value="small">Regular</option>
+         </select>
+         <br>
+        <img src="ballons.jpg" alt="Balloons" width="100">
+      </div>
+      <div class="form-group">
+        <label for="happy-birthday-sign">Happy Birthday Sign:</label>
+        <select id="happy-birthday-sign">
+          <option value="none">None</option>
+          <option value="standard">Standard</option>
+        </select>
+        <br>
+        <img src="sign,jpg.jpg" alt="Happy Birthday Sign" width="100">
+      </div>
+      <div class="form-group">
+        <label for="age-number">Age Number:</label>
+        <input type="text" id="age-number" placeholder="Enter age number">
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" id="price" readonly>
+      </div>
+    </form>
+    <button onclick="calculatePrice()">Calculate Price</button>
+  </div>
+  <script>
+  function calculatePrice() {
+    var flowerType = document.getElementById("flower-type").value;
+    var flowerColor = document.getElementById("flower-color").value;
+    var balloons = document.getElementById("balloons").value;
+    var happyBirthdaySign = document.getElementById("happy-birthday-sign").value;
+    var ageNumber = document.getElementById("age-number").value;
+    
+  
+    var price = 0;
+ 
+    if (flowerType === "roses") {
+      price += 110; 
+    } else if (flowerType === "Carnations") {
+      price += 60; 
+    } else if (flowerType === "Proteas") {
+      price += 200; 
+    } else if (flowerType === "Chrysanthemums") {
+      price += 80;
+    }
+    
+    
+    if (flowerColor === "red") {
+      price += 0; 
+    } else if (flowerColor === "pink") {
+      price += 0;
+    } else if (flowerColor === "yellow") {
+      price += 0;
+    } else if (flowerColor === "white") {
+      price += 0;
+    }
+    
+   
+    if (balloons === "Regular") {
+      price += 30; 
+    } else if(balloons=="None"){
+        price +=0;
+    }
+    
+   
+    if (happyBirthdaySign === "none") {
+      price += 0; 
+    } else if (happyBirthdaySign === "standard") {
+ price += 50;
+    }
+
+  
+    price += parseInt(ageNumber) || 0; 
+    
+    
+    document.getElementById("price").value = "R" + price.toFixed(2);
+  }
+  </script>
+  <br>
+  <br>
+
+  <div id="invoice-details">
+  <button onclick="generateInvoice()">Invoice</button>
+</div>
+  <script>
+  function generateInvoice() {
+    var flowerType = document.getElementById("flower-type").value;
+    var flowerColor = document.getElementById("flower-color").value;
+    var balloons = document.getElementById("balloons").value;
+    var happyBirthdaySign = document.getElementById("happy-birthday-sign").value;
+    var ageNumber = document.getElementById("age-number").value;
+  
+   
+    var details = "<h3>Invoice</h3>";
+    details += "<p><strong>Flower Type:</strong> " + flowerType + "</p>";
+    details += "<p><strong>Flower Color:</strong> " + flowerColor + "</p>";
+    details += "<p><strong>Balloons:</strong> " + balloons + "</p>";
+    details += "<p><strong>Happy Birthday Sign:</strong> " + happyBirthdaySign + "</p>";
+    details += "<p><strong>Age Number:</strong> " + ageNumber + "</p>";
+    details +="<p><strong>Please provide invoice in-atore when collecting purchase</strong>" + "<p>";
+  
+
+    
+    document.getElementById("invoice-details").innerHTML = details;
+  }
+</script>
+<div>
+    <button id="copy-button" onclick="copyInvoice()">Copy Invoice</button>
+</div>
+<script>
+    function copyInvoice() {
+  var invoiceContent = document.getElementById("invoice-details");
+  var range = document.createRange();
+  range.selectNode(invoiceContent);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+  alert("Invoice copied!");
+}
+</script>
+  <footer>
+    <p>&copy; 2023 RashidsFlorists. All rights reserved.</p>
+  </footer>
+</body>
+</html>

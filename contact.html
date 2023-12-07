@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+  <link rel="stylesheet" type="text/css" href="contactstyles.css">
+</head>
+<body>
+  <section id="contact-info" class="section">
+    <div class="container">
+      <h1>Contact Information</h1>
+      <i class="far fa-envelope"></i>
+      <p>Phone: 063 591 1053</p>
+      <p>Email: RashidsFlorists@gmail.com</p>
+    </div>
+  </section>
+  
+  <section id="location" class="section">
+    <div class="container">
+      <h1>Location</h1>
+      <i class="fas fa-map-marker-alt"></i>
+      <p> 123 Sparks Rd, Overport, Durban, 4001</p>
+    </div>
+    <div class="button-container">
+        <button class="locate-button" onclick="openGoogleMaps()">Locate Us</button>
+      </div>
+  </section>
+  <script>
+    function openGoogleMaps() {
+      window.open("https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.96626995243!2d30.988303275089905!3d-29.836395375029095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef7074d9b27be63%3A0x31ed4e457471fce2!2sRashids%20Florists!5e0!3m2!1sen!2sza!4v1685563132885!5m2!1sen!2sza", "_blank");
+    }
+    </script>
+  
+  <section id="contact-me" class="section">
+    <div class="container">
+      <h1>Contact Me</h1>
+      <p>Get in touch for a free consultation</p>
+      <button class="contact-button">Contact Me</button>
+    </div>
+  
+  </section>
+  
+  <section id="contact-form" class="section">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <form action="process_form.php" method="POST">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Cellphone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Flower Arrangement Request:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
